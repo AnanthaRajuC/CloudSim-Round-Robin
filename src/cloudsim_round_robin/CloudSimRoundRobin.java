@@ -1,4 +1,4 @@
-package cloudsimexample9;
+package cloudsim_round_robin;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -28,10 +28,9 @@ import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
 @EnableAutoConfiguration
-public class CloudSimExample9 
+public class CloudSimRoundRobin 
 {
 	/** The cloudlet list. */
 	private static List<Cloudlet> cloudletList;
@@ -42,7 +41,7 @@ public class CloudSimExample9
 	private static List<Vm> createVM(int userId, int vms, int idShift) 
 	{
 		//Creates a container to store VMs. This list is passed to the broker later
-		LinkedList<Vm> list = new LinkedList<Vm>();
+		LinkedList<Vm> vmList = new LinkedList<Vm>();
 
 		//VM Parameters
 		long size = 10000; //image size (MB)
@@ -58,10 +57,10 @@ public class CloudSimExample9
 		for(int i=0;i < vms;i++)
 		{
 			vm[i] = new Vm(idShift + i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
-			list.add(vm[i]);
+			vmList.add(vm[i]);
 		}
 
-		return list;
+		return vmList;
 	}
 
 	private static List<Cloudlet> createCloudlet(int userId, int cloudlets, int idShift)
@@ -141,7 +140,7 @@ public class CloudSimExample9
 			//datacenter0.printDebts();
 			//datacenter1.printDebts();
 
-			Log.printLine(CloudSimExample9.class.getName() + " finished!");
+			Log.printLine(CloudSimRoundRobin.class.getName() + " finished!");
 		}
 		catch (Exception e)
 		{
