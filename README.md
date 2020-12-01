@@ -1,4 +1,6 @@
 # CloudSim-Round-Robin
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin?ref=badge_shield)
+
 CloudSim Example with Round Robin Data center broker &amp; Round Robin Vm Allocation Policy with Circular Hosts List.
 
 
@@ -25,3 +27,7 @@ you can fork and clone this repository or You can directly Download the ZIP file
 
 If you get an error/warning "incorrect package", click on the error/warning icon and then click on "change package declaration to cloudsim9". you will get this error/warning in the first line of the code, it's the package declaration.
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin?ref=badge_large)
