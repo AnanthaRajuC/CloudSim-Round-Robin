@@ -1,7 +1,5 @@
 package cloudsimexample9;
 
-
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,17 +25,22 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-public class CloudSimExample9 {
-
+@SpringBootApplication
+@EnableAutoConfiguration
+public class CloudSimExample9 
+{
 	/** The cloudlet list. */
 	private static List<Cloudlet> cloudletList;
 
 	/** The vmList. */
 	private static List<Vm> vmList;
 
-	private static List<Vm> createVM(int userId, int vms, int idShift) {
+	private static List<Vm> createVM(int userId, int vms, int idShift) 
+	{
 		//Creates a container to store VMs. This list is passed to the broker later
 		LinkedList<Vm> list = new LinkedList<Vm>();
 
@@ -52,7 +55,8 @@ public class CloudSimExample9 {
 		//create VMs
 		Vm[] vm = new Vm[vms];
 
-		for(int i=0;i < vms;i++){
+		for(int i=0;i < vms;i++)
+		{
 			vm[i] = new Vm(idShift + i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
 			list.add(vm[i]);
 		}
@@ -60,8 +64,8 @@ public class CloudSimExample9 {
 		return list;
 	}
 
-
-	private static List<Cloudlet> createCloudlet(int userId, int cloudlets, int idShift){
+	private static List<Cloudlet> createCloudlet(int userId, int cloudlets, int idShift)
+	{
 		// Creates a container to store Cloudlets
 		LinkedList<Cloudlet> list = new LinkedList<Cloudlet>();
 
@@ -74,7 +78,8 @@ public class CloudSimExample9 {
 
 		Cloudlet[] cloudlet = new Cloudlet[cloudlets];
 
-		for(int i=0;i<cloudlets;i++){
+		for(int i=0;i<cloudlets;i++)
+		{
 			cloudlet[i] = new Cloudlet(idShift + i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel);
 			// setting the owner of these Cloudlets
 			cloudlet[i].setUserId(userId);
@@ -88,10 +93,12 @@ public class CloudSimExample9 {
 	/**
 	 * Creates main() to run this example
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		Log.printLine("Starting CloudSimExample8...");
 
-		try {
+		try 
+		{
 			// First step: Initialize the CloudSim package. It should be called
 			// before creating any entities.
 			int num_user = 2;   // number of grid users
@@ -143,8 +150,8 @@ public class CloudSimExample9 {
 		}
 	}
 
-	private static Datacenter createDatacenter(String name){
-
+	private static Datacenter createDatacenter(String name)
+	{
 		// Here are the steps needed to create a PowerDatacenter:
 		// 1. We need to create a list to store one or more
 		//    Machines
@@ -220,38 +227,47 @@ public class CloudSimExample9 {
 
 		// 6. Finally, we need to create a PowerDatacenter object.
 		Datacenter datacenter = null;
-		try {
+		try 
+		{
 			RoundRobinVmAllocationPolicy vm_policy = new RoundRobinVmAllocationPolicy(hostList);
 			datacenter = new Datacenter(name, characteristics, vm_policy, storageList, 0);
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
+		
 		return datacenter;
 	}
 	
 
-	public static class VmAllocationPolicyMinimum extends org.cloudbus.cloudsim.VmAllocationPolicy {
+	public static class VmAllocationPolicyMinimum extends org.cloudbus.cloudsim.VmAllocationPolicy 
+	{
 
 		private Map<String, Host> vm_table = new HashMap<String, Host>();
 		
 		private final Hosts hosts;
 		private Datacenter datacenter;
 
-		public VmAllocationPolicyMinimum(List<? extends Host> list) {
+		public VmAllocationPolicyMinimum(List<? extends Host> list) 
+		{
 			super(list);
 			hosts = new Hosts(list);
 		}
 		
-		public void setDatacenter(Datacenter datacenter) {
+		public void setDatacenter(Datacenter datacenter) 
+		{
 			this.datacenter = datacenter;
 		}
 		
-		public Datacenter getDatacenter() {
+		public Datacenter getDatacenter() 
+		{
 			return datacenter;
 		}
 
 		@Override
-		public boolean allocateHostForVm(Vm vm) {
+		public boolean allocateHostForVm(Vm vm) 
+		{
 
 			if (this.vm_table.containsKey(vm.getUid()))
 				return true;
@@ -284,12 +300,14 @@ public class CloudSimExample9 {
 		}
 
 		@Override
-		public List<Map<String, Object>> optimizeAllocation(List<? extends Vm> vmList) {
+		public List<Map<String, Object>> optimizeAllocation(List<? extends Vm> vmList) 
+		{
 			return null;
 		}
 
 		@Override
-		public void deallocateHostForVm(Vm vm) {
+		public void deallocateHostForVm(Vm vm) 
+		{
 			Host host = this.vm_table.remove(vm.getUid());
 			
 			if (host != null)
@@ -299,18 +317,21 @@ public class CloudSimExample9 {
 		}
 
 		@Override
-		public Host getHost(Vm vm) {
+		public Host getHost(Vm vm) 
+		{
 			return this.vm_table.get(vm.getUid());
 		}
 
 		@Override
-		public Host getHost(int vmId, int userId) {
+		public Host getHost(int vmId, int userId) 
+		{
 			return this.vm_table.get(Vm.getUid(userId, vmId));
 		}
 	}
 
 	
-	private static DatacenterBroker createBroker(String name) throws Exception{
+	private static DatacenterBroker createBroker(String name) throws Exception
+	{
 		return new RoundRobinDatacenterBroker(name);
 	}
 
@@ -318,7 +339,8 @@ public class CloudSimExample9 {
 	 * Prints the Cloudlet objects
 	 * @param list  list of Cloudlets
 	 */
-	private static void printCloudletList(List<Cloudlet> list) {
+	private static void printCloudletList(List<Cloudlet> list) 
+	{
 		int size = list.size();
 		Cloudlet cloudlet;
 
@@ -333,7 +355,8 @@ public class CloudSimExample9 {
 			cloudlet = list.get(i);
 			Log.print(indent + cloudlet.getCloudletId() + indent + indent);
 
-			if (cloudlet.getCloudletStatus() == Cloudlet.SUCCESS){
+			if (cloudlet.getCloudletStatus() == Cloudlet.SUCCESS)
+			{
 				Log.print("SUCCESS");
 
 				Log.printLine( indent + indent + cloudlet.getResourceId() + indent + indent + indent + cloudlet.getVmId() +

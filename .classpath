@@ -17,5 +17,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="F:/Anantha Raju C/eclipse-workspace/WS_E_2020_SBAT/CloudSim-Round-Robin/lib/cloudsim-3.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anantharaju/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.3.5.RELEASE/spring-boot-autoconfigure-2.3.5.RELEASE.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.springframework.boot"/>
+			<attribute name="maven.artifactId" value="spring-boot-autoconfigure"/>
+			<attribute name="maven.version" value="2.3.5.RELEASE"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
