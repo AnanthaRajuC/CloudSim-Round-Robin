@@ -1,4 +1,6 @@
 # CloudSim-Round-Robin
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin?ref=badge_shield)
+
 CloudSim Example with Round Robin Data center broker &amp; Round Robin Vm Allocation Policy with Circular Hosts List.
 
 <a href='https://coveralls.io/r/AnanthaRajuC/CloudSim-Round-Robin'><img src='https://coveralls.io/repos/AnanthaRajuC/CloudSim-Round-Robin/badge.svg' alt='Coverage Status' /></a>
@@ -99,5 +101,7 @@ If you would like to enhance, please:
 *	Happy Coding ...* 🙂
 
 ## FOSSA third-party code, license compliance and vulnerabilities
+
+## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAnanthaRajuCprojects%2FCloudSim-Round-Robin?ref=badge_large)
