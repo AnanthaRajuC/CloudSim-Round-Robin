@@ -7,8 +7,34 @@
 	<packaging>jar</packaging>
 	 
 	<name>CloudSim-Round-Robin</name>
+	<url>https://github.com/AnanthaRajuCprojects/CloudSim-Round-Robin</url>
 	<description>CloudSim-Round-Robin</description>
-	 
+	
+	<!-- Start - Spring Boot Application Template Project Owner -->
+	<developers>
+		<developer>
+			<name>Anantha Raju C</name>
+			<email>arcswdev@gmail.com</email>
+			<timezone>UTC+05:30</timezone>
+		</developer>
+	</developers>
+	<!-- End - Spring Boot Application Template Project Owner -->
+	
+	<!-- Start - Spring Boot Application Template source repository -->
+    <scm>
+        <connection>https://github.com/AnanthaRajuCprojects/CloudSim-Round-Robin.git</connection>
+        <developerConnection>git@github.com:AnanthaRajuCprojects/CloudSim-Round-Robin.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+	<!-- End - Spring Boot Application Template source repository -->
+    
+    <!-- Start - Spring Boot Application Template issue management -->
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/AnanthaRajuCprojects/CloudSim-Round-Robin/issues</url>
+    </issueManagement>
+    <!-- End - Spring Boot Application Template issue management -->
+    
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -19,6 +45,8 @@
 	<properties>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	    
+	    <!--  Dependencies versions properties  -->
 	    <java.version>1.8</java.version>
 	</properties>
 	
@@ -30,7 +58,7 @@
 	</dependencies>
 	 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
+		<!-- Package as an executable jar/war. -->
 	   	<plugins>
 			<plugin>
 	        	<groupId>org.springframework.boot</groupId>
